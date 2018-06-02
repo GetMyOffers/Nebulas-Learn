@@ -1,4 +1,6 @@
-1、Filter 功能
+*Note: Directly copied from [Spring Boot实战之Filter实现简单的Http Basic认证](https://blog.csdn.net/sun_t89/article/details/51916834)
+
+### 1、Filter 功能
 
 它使用户可以改变一个 request 和修改一个 response. Filter 不是一个 servlet，它不能产生一个 response，它能够在一个 request 到达 servlet 之前预处理 request，也可以在离开 servlet时处理 response.换种说法，filter 其实是一个 ”servlet chaining” (servlet 链).
 一个Filter包括：
@@ -8,7 +10,7 @@
 4）根据需要修改response头和response数据;
 5）在servlet被调用之后截获.
 
-2、定义自己的过滤器
+### 2、定义自己的过滤器
 
 新增HTTPBasicAuthorizeAttribute.java
 
@@ -129,7 +131,7 @@ public class HTTPBasicAuthorizeAttribute implements Filter{
 
 ```
 
-3、在SpringRestApplication类中注册过滤器，给user/*都加上http basic认证过滤器
+### 3、在SpringRestApplication类中注册过滤器，给user/*都加上http basic认证过滤器
 
 ```java
 package com.xiaofangtech.sunt;
