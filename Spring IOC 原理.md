@@ -18,13 +18,15 @@
 
 #### 总结
 
-Spring IOC 容器主要有继承体系底层的 BeanFactory、高层的ApplicationContext和WebApplicationContext
+Spring IOC 容器主要有继承体系底层的 BeanFactory、高层的 ApplicationContext 和 WebApplicationContext
 
 Bean 有自己的生命周期
 
-**容器启动原理：**Spring 应用的 IOC 容器通过 tomcat 的 Servlet 或 Listener 监听启动加载；Spring MVC 的容器由 DispatchServlet 作为入口加载；Spring 容器是 Spring MVC 容器的父容器
+**容器启动原理: **
 
-**容器加载Bean原理：**
+Spring 应用的 IOC 容器通过 tomcat 的 Servlet 或 Listener 监听启动加载；Spring MVC 的容器由 DispatchServlet 作为入口加载；Spring 容器是 Spring MVC 容器的父容器
+
+**容器加载 Bean 原理：**
 
 BeanDefinitionReader 读取 Resource 所指向的配置文件资源，然后解析配置文件。配置文件中每一个解析成一个 BeanDefinition 对象，并保存到 BeanDefinitionRegistry 中；
 
