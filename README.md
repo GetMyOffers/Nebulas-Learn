@@ -1,2 +1,2 @@
-# Nebulas-Intern-Learn-
+# Nebulas-Learn
 This repo records all the related newly acquired new knowledge or summarization for past.
