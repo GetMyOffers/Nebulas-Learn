@@ -1,4 +1,4 @@
-### Spring IOC
+## Spring IOC
 
  
 
@@ -16,7 +16,7 @@
 
 
 
-#### 总结
+## 总结
 
 Spring IOC 容器主要有继承体系底层的 BeanFactory、高层的 ApplicationContext 和 WebApplicationContext
 
@@ -36,7 +36,7 @@ BeanDefinitionReader 读取 Resource 所指向的配置文件资源，然后解�
 
  
 
- #### References
+ ## References
 
 1. [Spring IOC原理总结](https://www.jianshu.com/p/9fe5a3c25ab6)
 2. [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575)
