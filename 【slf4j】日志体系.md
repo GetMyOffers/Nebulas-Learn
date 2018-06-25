@@ -54,20 +54,22 @@ logging.config= src/main/resources/log4j2.xml
 ### 2.3. 举例
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="debug">
+<Configuration status="info">
     <Appenders>
-        <Console name="SYSOUT" target="SYSTEM_OUT">
-            <PatternLayout patter="%d [%t] %-5p [%c] - %m%n  "/>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout patter="%m%n"/>
         </Console>
 
         <!-- name可以自定义，作用是在Loggers中AppenderRef中使用 -->
         <!-- fileName定义输出文件名称（当前文件） -->
         <!-- filePattern定义输出文件名称（文件满足条件后自动截断，生成历史文件） -->
-        <RollingFile name="DEBUG_ROLLING_FILE"
-                     fileName="/Users/irving/IdeaProjects/SpringBoot-Study/logs/logs.logs"
-                     filePattern="/Users/irving/IdeaProjects/SpringBoot-Study/logs/%d{yyyy-MM-dd}-debugs.log">
+        <RollingFile name="WARN_ROLLING_FILE"
+                     fileName="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/console-warn.log"
+                     filePattern="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/console-warn.%d{yyyy-MM-dd}.log">
+            <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
-                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+                <Charset>UTF-8</Charset>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
             </PatternLayout>
 
             <!-- 文件截断的条件，具体参考文档 -->
@@ -75,32 +77,73 @@ logging.config= src/main/resources/log4j2.xml
                 <TimeBasedTriggeringPolicy interval="24"/>
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/" maxDepth="2">
+                    <IfFileName glob="*.log" />
+                    <IfLastModified age="60d" />
+                </Delete>
+            </DefaultRolloverStrategy>
         </RollingFile>
 
         <!-- 同一来源的Appender可以定义多个 -->
         <RollingFile name="ERROR_ROLLING_FILE"
-                     fileName="/Users/irving/IdeaProjects/SpringBoot-Study/logs/error-logs.logs"
-                     filePattern="/Users/irving/IdeaProjects/SpringBoot-Study/logs/%d{yyyy-MM-dd}-error.log">
-            <!-- 可以通过该参数来设置获取日志的权限 -->
+                     fileName="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/console-error.log"
+                     filePattern="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/console-error.%d{yyyy-MM-dd}.log">
             <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout>
-                <Pattern>%d [%t] %-5p [%c] - %m%n  </Pattern>
+                <Charset>UTF-8</Charset>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
             </PatternLayout>
+
+            <!-- 文件截断的条件，具体参考文档 -->
             <Policies>
                 <TimeBasedTriggeringPolicy interval="24"/>
                 <SizeBasedTriggeringPolicy size="250 MB"/>
             </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/" maxDepth="2">
+                    <IfFileName glob="*.log" />
+                    <IfLastModified age="60d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <!-- 同一来源的Appender可以定义多个 -->
+        <RollingFile name="INFO_ROLLING_FILE"
+                     fileName="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/console-info.log"
+                     filePattern="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/console-info.%d{yyyy-MM-dd}.log">
+            <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout>
+                <Charset>UTF-8</Charset>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+
+            <!-- 文件截断的条件，具体参考文档 -->
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24"/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="/Users/lisanaaa/Desktop/app/nebulasio/logs/user-center/" maxDepth="2">
+                    <IfFileName glob="*.log" />
+                    <IfLastModified age="60d" />
+                </Delete>
+            </DefaultRolloverStrategy>
         </RollingFile>
     </Appenders>
 
     <Loggers>
-        <Root level="debug">
-            <AppenderRef ref="SYSOUT"/>
-            <AppenderRef ref="DEBUG_ROLLING_FILE"/>
+        <logger name="com.atomikos" level="info"/>
+        <logger name="org.springframework" level="info"/>
+        <logger name="org.mybatis" level="info"/>
+        <logger name="org.apache" level="info"/>
+
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="WARN_ROLLING_FILE"/>
             <AppenderRef ref="ERROR_ROLLING_FILE"/>
+            <AppenderRef ref="INFO_ROLLING_FILE"/>
         </Root>
     </Loggers>
 </Configuration>
-<!-- /Users/irving/IdeaProjects/SpringBoot-Study -->
-
 ```
