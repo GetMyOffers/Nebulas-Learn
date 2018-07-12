@@ -44,6 +44,8 @@ STARTED
 
 http://127.0.0.1:8081/index.htm
 
+![lts后台首页](https://github.com/Lisanaaa/Nebulas-Learn/blob/master/image/lts%E5%90%8E%E5%8F%B0%E9%A6%96%E9%A1%B5.jpeg)
+
 ### 6. 在项目中配置TaskTracker
 在自己的项目中配置TaskTracker
 
@@ -155,6 +157,9 @@ public class FetchCoinMarketJobRunner implements JobRunner {
 
 ***Note：其中fetchCoinMarketJob可以单独写任务逻辑***
 
+
+### 7. 愉快地管理任务
+![lts管理任务](https://github.com/Lisanaaa/Nebulas-Learn/blob/master/image/lts%E7%AE%A1%E7%90%86%E4%BB%BB%E5%8A%A1.jpeg)
 
 
 
