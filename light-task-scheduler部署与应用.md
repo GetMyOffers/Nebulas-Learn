@@ -121,6 +121,36 @@ public class MultiTaskRunnerDispatcher implements JobRunner, ApplicationContextA
 }
 ```
 
+或者另外一种手动插入JobRunner的方式，但是这种可以分测试和线上环境。
+```java
+@JobRunner4TaskTracker
+public class MultiTaskRunnerDispatcher implements JobRunner {
+
+    private static final ConcurrentHashMap<String, JobRunner> JOB_RUNNER_MAP = new ConcurrentHashMap<String, JobRunner>();
+
+    @Value("${env}")
+    private String env;
+    @Resource(name = "fetchCoinMarket")
+    private FetchCoinMarketJobRunner fetchCoinMarketJobRunner;
+
+    @Override
+    public Result run(JobContext jobContext) throws Throwable {
+        String taskId = jobContext.getJob().getTaskId();
+        JobRunner runner = JOB_RUNNER_MAP.get(taskId);
+        if (null == runner) {
+            //throw new RuntimeException("未找到相应的任务执行者, jobKey=" + jobKey);
+            return new Result(Action.EXECUTE_FAILED, "未找到相应的任务执行者, JobRunnerTypes=" + taskId);
+        }
+        return runner.run(jobContext);
+    }
+
+    @PostConstruct
+    public void init() {
+        JOB_RUNNER_MAP.put(env + "-" + "fetchCoinMarket", fetchCoinMarketJobRunner);
+    }
+}
+```
+
 #### - 定义特定类型的JobRunner
 ```java
 @Component("fetchCoinMarket")
