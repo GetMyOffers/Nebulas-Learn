@@ -1,167 +1,50 @@
-1、Filter 功能
+## Spring IOC
 
-它使用户可以改变一个 request 和修改一个 response. Filter 不是一个 servlet，它不能产生一个 response，它能够在一个 request 到达 servlet 之前预处理 request，也可以在离开 servlet时处理 response.换种说法，filter 其实是一个 ”servlet chaining” (servlet 链).
-一个Filter包括：
-1）在servlet被调用之前截获;
-2）在servlet被调用之前检查servlet request;
-3）根据需要修改request头和request数据;
-4）根据需要修改response头和response数据;
-5）在servlet被调用之后截获.
+ 
 
-2、定义自己的过滤器
+要了解**控制反转( Inversion of Control )**, 有必要先了解软件设计的一个重要思想：**依赖倒置原则（Dependency Inversion Principle ）**。
 
-新增HTTPBasicAuthorizeAttribute.java
+**依赖倒置**：从高层谈需求，一层层往下实现。在代码上的体现为把底层类作为参数传入上层类，实现上层类对下层类的控制。
 
-如果请求的Header中存在Authorization: Basic 头信息，且用户名密码正确，则继续原来的请求，否则返回没有权限的错误信息
+这样做的好处就是如果我们想要改变底层类的定义的时候，上层类并不会受到影响，因为上层类不关心下层是怎么实现的，只要它能够拿到下层类的实例化对象即可。
 
-```java
-package com.xiaofangtech.sunt.filter;
+但是想想看，如果我想要一个车子，那么我得先要实例化一个车身类，要得到车身又得要一个底盘类，依次下去，轮子类，螺丝类，多么繁琐啊，并且依赖关系多了我们根本记不住依赖关系啊，所以 Spring 帮助我们做了这一步，我们要做的只是在配置文件中提前写好依赖关系即可，Spring 会返回一个我们想要的汽车实例。
 
-import java.io.IOException;
+那么，Spring 怎么做到的呢？我做了一个图，如下：
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+![](https://github.com/Lisanaaa/Nebulas-Learn/blob/master/image/Spring-Bean-Create.png)
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.xiaofangtech.sunt.utils.ResultMsg;
-import com.xiaofangtech.sunt.utils.ResultStatusCode;
-import sun.misc.BASE64Decoder;
 
-@SuppressWarnings("restriction")
-public class HTTPBasicAuthorizeAttribute implements Filter{
-	
-	private static String Name = "test";
-	private static String Password = "test";
 
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
+## 总结
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-			throws IOException, ServletException {
-		// TODO Auto-generated method stub
-		
-		ResultStatusCode resultStatusCode = checkHTTPBasicAuthorize(request);
-		if (resultStatusCode != ResultStatusCode.OK)
-		{
-			HttpServletResponse httpResponse = (HttpServletResponse) response;
-			httpResponse.setCharacterEncoding("UTF-8");  
-			httpResponse.setContentType("application/json; charset=utf-8"); 
-			httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+Spring IOC 容器主要有继承体系底层的 BeanFactory、高层的 ApplicationContext 和 WebApplicationContext
 
-			ObjectMapper mapper = new ObjectMapper();
-			
-			ResultMsg resultMsg = new ResultMsg(ResultStatusCode.PERMISSION_DENIED.getErrcode(), ResultStatusCode.PERMISSION_DENIED.getErrmsg(), null);
-			httpResponse.getWriter().write(mapper.writeValueAsString(resultMsg));
-			return;
-		}
-		else
-		{
-			chain.doFilter(request, response);
-		}
-	}
+Bean 有自己的生命周期
 
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	private ResultStatusCode checkHTTPBasicAuthorize(ServletRequest request)
-	{
-		try
-		{
-			HttpServletRequest httpRequest = (HttpServletRequest)request;
-			String auth = httpRequest.getHeader("Authorization");
-			if ((auth != null) && (auth.length() > 6))
-			{
-				String HeadStr = auth.substring(0, 5).toLowerCase();
-				if (HeadStr.compareTo("basic") == 0)
-				{
-					auth = auth.substring(6, auth.length());  
-		            String decodedAuth = getFromBASE64(auth);
-		            if (decodedAuth != null)
-		            {
-		            	String[] UserArray = decodedAuth.split(":");
-		            	
-		            	if (UserArray != null && UserArray.length == 2)
-		            	{
-		            		if (UserArray[0].compareTo(Name) == 0
-			            			&& UserArray[1].compareTo(Password) == 0)
-		            		{
-		            			return ResultStatusCode.OK;
-		            		}
-		            	}
-		            }
-				}
-			}
-			return ResultStatusCode.PERMISSION_DENIED;
-		}
-		catch(Exception ex)
-		{
-			return ResultStatusCode.PERMISSION_DENIED;
-		}
-		
-	}
-	
-	private String getFromBASE64(String s) {  
-        if (s == null)  
-            return null;  
-        BASE64Decoder decoder = new BASE64Decoder();  
-        try {  
-            byte[] b = decoder.decodeBuffer(s);  
-            return new String(b);  
-        } catch (Exception e) {  
-            return null;  
-        }  
-    }
+**容器启动原理: **
 
-}
+Spring 应用的 IOC 容器通过 tomcat 的 Servlet 或 Listener 监听启动加载；Spring MVC 的容器由 DispatchServlet 作为入口加载；Spring 容器是 Spring MVC 容器的父容器
 
-```
+**容器加载 Bean 原理：**
 
-3、在SpringRestApplication类中注册过滤器，给user/*都加上http basic认证过滤器
+BeanDefinitionReader 读取 Resource 所指向的配置文件资源，然后解析配置文件。配置文件中每一个解析成一个 BeanDefinition 对象，并保存到 BeanDefinitionRegistry 中；
 
-```java
-package com.xiaofangtech.sunt;
+容器扫描 BeanDefinitionRegistry 中的 BeanDefinition；调用 InstantiationStrategy 进行Bean 实例化的工作；使用 BeanWrapper 完成 Bean 属性的设置工作；
 
-import java.util.ArrayList;
-import java.util.List;
+单例 Bean 缓存池：Spring 在 DefaultSingletonBeanRegistry 类中提供了一个用于缓存单实例 Bean 的缓存器，它是一个用 HashMap 实现的缓存器，单实例的 Bean 以 beanName 为键保存在这个 HashMap 中。
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.embedded.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
+ 
 
-import com.xiaofangtech.sunt.filter.HTTPBasicAuthorizeAttribute;
+## References
 
-@SpringBootApplication
-public class SpringRestApplication {
+1. [Spring IOC原理总结](https://www.jianshu.com/p/9fe5a3c25ab6)
+2. [Spring IoC有什么好处呢？](https://www.zhihu.com/question/23277575)
+3. [Inversion of Control Containers and the Dependency Injection pattern](https://martinfowler.com/articles/injection.html)
+4. [Dependency Injection](https://en.wikipedia.org/wiki/Dependency_injection)
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringRestApplication.class, args);
-	}
-	
-	@Bean
-    public FilterRegistrationBean  filterRegistrationBean() {
-		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
-		HTTPBasicAuthorizeAttribute httpBasicFilter = new HTTPBasicAuthorizeAttribute();
-		registrationBean.setFilter(httpBasicFilter);
-		List<String> urlPatterns = new ArrayList<String>();
-	    urlPatterns.add("/user/*");
-	    registrationBean.setUrlPatterns(urlPatterns);
-	    return registrationBean;
-    }
-}
+ 
 
-```
+ 
 
+ 
