@@ -43,9 +43,9 @@
  
 
 ## Contributors
-[Lisanaaa](https://github.com/Lisanaaa)
-[jiangzhonglian](https://github.com/jiangzhonglian)
-[chenyyx](https://github.com/chenyyx)
+1. [Lisanaaa](https://github.com/Lisanaaa)
+2. [jiangzhonglian](https://github.com/jiangzhonglian)
+3. [chenyyx](https://github.com/chenyyx)
 
 ## Pull Request
 
