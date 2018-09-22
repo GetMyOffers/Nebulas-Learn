@@ -58,11 +58,11 @@ If you feel your PR is satisfied with one of the conditions below, we are glad t
 
 Feel free to get our [PR template](https://github.com/apachecn/awesome-leetcode/blob/master/docs/Leetcode_Solutions/Python/001._two_sum.md)
 
-If you are a newbie of Git, please check this tutorial we have made.
+If you are a newbie of Git, please check this [tutorial](https://github.com/apachecn/kaggle/tree/dev/docs/GitHub) we have made.
 
 ## Support
-- GitHub issues for bug reports and new feature requests.
-- Our ```[QQ Group: 812791932]``` to ask questions, discuss features, and for general discussion.
+- [GitHub issues](https://github.com/apachecn/awesome-leetcode/issues) for bug reports and new feature requests.
+- Our ```[QQ Group: 812791932]``` to ask questions, discuss features, and for general discussion. <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=30e5f1123a79867570f665aa3a483ca404b1c3f77737bc01ec520ed5f078ddef"><img border="0" src="img/MainPage/ApacheCN-group.png" alt="ApacheCN - 学习机器学习群[629470233]" title="ApacheCN - 学习机器学习群[629470233]"></a>**
 
 ## Acknowledgement
 
@@ -73,4 +73,10 @@ If you are a newbie of Git, please check this tutorial we have made.
 
 ## License
 
-MIT © [ApacheCN]()
+MIT © [ApacheCN](https://github.com/apachecn)
+
+## Organization 
+
+* [ApacheCN 组织资源](https://github.com/apachecn/home): https://github.com/apachecn/home
+
+> **欢迎任何人参与和完善：一个人可以走的很快，但是一群人却可以走的更远**
