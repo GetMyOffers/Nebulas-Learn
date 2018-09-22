@@ -1,7 +1,7 @@
 <br>
 
 <div align="center">
-    <img src="https://github.com/GetMyOffers/Nebulas-Learn/blob/master/53F082D5DC4063B7FAAFAAFBB5CD7118.jpg" width="150px">
+    <img src="https://github.com/apachecn/awesome-leetcode/blob/master/images/readme_badges/organization.jpg" width="150px">
     <br>
     <a href=""> <img src="https://img.shields.io/badge/%3E-awesome-red.svg"></a> <a href=""><a href=""> <img src="https://img.shields.io/badge/%3E-algorithm-red.svg"></a> <a href=""> <img src="https://img.shields.io/badge/%3E-leetcode-red.svg"></a> 
 </div>
@@ -9,14 +9,15 @@
 <br>
  
 ## Contents
-1. Leetcode Solutions
-    1. Python
-    2. Java
-    3. C++
-2. Algorithm Implementation
-    1. Python
-    2. Java
-    3. C++
+1. [Leetcode Solutions](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Leetcode_Solutions)
+    1. [Python](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Leetcode_Solutions/Python)
+    2. [Java](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Leetcode_Solutions/Java)
+    3. [C++](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Leetcode_Solutions/C++)
+    4. [ipynb](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Leetcode_Solutions/ipynb)
+2. [Algorithm Implementation](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Algorithm_Implementation)
+    1. [Python](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Algorithm_Implementation/Python)
+    2. [Java](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Algorithm_Implementation/Java)
+    3. [C++](https://github.com/apachecn/awesome-leetcode/tree/master/docs/Algorithm_Implementation/C++)
     
 ## Useful Links
 - [kamyu104的Github](https://github.com/kamyu104/LeetCode)
@@ -55,7 +56,7 @@ If you feel your PR is satisfied with one of the conditions below, we are glad t
 * 3. Follow up solutions
 * 4. Unsubmitted questions
 
-Feel free to get our [PR template]
+Feel free to get our [PR template](https://github.com/apachecn/awesome-leetcode/blob/master/docs/Leetcode_Solutions/Python/001._two_sum.md)
 
 If you are a newbie of Git, please check this tutorial we have made.
 
