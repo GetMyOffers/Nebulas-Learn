@@ -62,7 +62,7 @@ If you are a newbie of Git, please check this [tutorial](https://github.com/apac
 
 ## Support
 - [GitHub issues](https://github.com/apachecn/awesome-leetcode/issues) for bug reports and new feature requests.
-- Our ```[QQ Group: 812791932]``` to ask questions, discuss features, and for general discussion. <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=30e5f1123a79867570f665aa3a483ca404b1c3f77737bc01ec520ed5f078ddef"><img border="0" src="img/MainPage/ApacheCN-group.png" alt="ApacheCN - 学习机器学习群[629470233]" title="ApacheCN - 学习机器学习群[629470233]"></a>**
+- Our ```[QQ Group: 812791932]``` to ask questions, discuss features, and for general discussion.
 
 ## Acknowledgement
 
