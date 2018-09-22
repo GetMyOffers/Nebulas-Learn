@@ -51,10 +51,10 @@
 
 If you feel your PR is satisfied with one of the conditions below, we are glad to merge it. Welcome to contributions, open to suggestions!
 
-* - Different thoughts
-* - Time & Space complexity optimization
-* - Follow up solutions
-* - Unsubmitted questions
+- Different thoughts
+- Time & Space complexity optimization
+- Follow up solutions
+- Unsubmitted questions
 
 Feel free to get our [PR template](https://github.com/apachecn/awesome-leetcode/blob/master/docs/Leetcode_Solutions/Python/001._two_sum.md)
 
