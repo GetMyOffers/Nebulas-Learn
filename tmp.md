@@ -1,7 +1,6 @@
 <br>
 
 <div align="center">
-    <img src="https://github.com/apachecn/awesome-leetcode/blob/master/images/readme_badges/organization.jpg" width="150px">
     <br>
     <a href=""> <img src="https://img.shields.io/badge/%3E-awesome-red.svg"></a> <a href=""><a href="https://github.com/apachecn/awesome-leetcode/tree/master/docs/Algorithm_Implementation"> <img src="https://img.shields.io/badge/%3E-algorithm-red.svg"></a> <a href="https://github.com/apachecn/awesome-leetcode/tree/master/docs/Leetcode_Solutions"> <img src="https://img.shields.io/badge/%3E-leetcode-red.svg"></a> 
 </div>
@@ -22,36 +21,44 @@
 ## Useful Links
 - [kamyu104的Github](https://github.com/kamyu104/LeetCode)
 - [数据结构与算法/leetcode/lintcode题解](https://algorithm.yuanbin.me/zh-hans/)
-- [Leetcode 讨论区](https://discuss.leetcode.com/)
 - [visualgo算法可视化网站](https://visualgo.net/en)
 - [Data Structure Visualization](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
-- [我的算法学习之路 - Lucida](http://zh.lucida.me/blog/on-learning-algorithms/)
 - [HiredInTech](https://www.hiredintech.com/) System Design 的总结特别适合入门
 - [mitcc的Github](https://github.com/mitcc/AlgoSolutions)
 - [小土刀的面试刷题笔记](http://wdxtub.com/interview/14520594642530.html)
 - [nonstriater/Learn-Algorithms](https://github.com/nonstriater/Learn-Algorithms)
 - [剑指 Offer 题解](https://github.com/gatieme/CodingInterviews)
 - https://github.com/liuchuo/LeetCode
-- https://github.com/anxiangSir/SwordforOffer
-- https://www.nowcoder.com/ta/coding-interviews?page=1
-- [【小姐姐】刷题博客](https://www.liuchuo.net/about)
 - [公瑾的Github](https://github.com/yuzhoujr/leetcode)
 - [shejie1993](https://shenjie1993.gitbooks.io/leetcode-python/content/096%20Unique%20Binary%20Search%20Trees.html)
 - [编程之法：面试和算法心得](https://legacy.gitbook.com/book/wizardforcel/the-art-of-programming-by-july/details)
 - [算法/NLP/深度学习/机器学习面试笔记](https://github.com/imhuay/Interview_Notes-Chinese)
 - [CS-Notes](https://github.com/CyC2018/CS-Notes)
+- [OI Wiki](https://oi-wiki.org)
  
+## Sponsor
+1. [Lisanaaa](https://github.com/Lisanaaa)
+2. [jiangzhonglian](https://github.com/jiangzhonglian)
 
 ## Contributors
 1. [Lisanaaa](https://github.com/Lisanaaa)
 2. [jiangzhonglian](https://github.com/jiangzhonglian)
 3. [chenyyx](https://github.com/chenyyx)
+4. [cclauss](https://github.com/cclauss)
+5. [yudaer](https://github.com/yudaer)
+6. [yuzhoujr](https://github.com/yuzhoujr)
+7. [wizardforcel](https://github.com/wizardforcel)
+8. [Stuming](https://github.com/Stuming)
+9. [GaofanHu](https://github.com/GaofanHu)
+10. [er3456qi](https://github.com/er3456qi)
+11. [xshahq](https://github.com/xshahq)
 
+you can make a pull request if you are not in the list above
 ## Pull Request
 
 If you feel your PR is satisfied with one of the conditions below, we are glad to merge it. Welcome to contributions, open to suggestions!
 
-- Different thoughts
+- Different thinking
 - Time & Space complexity optimization
 - Follow up solutions
 - Unsubmitted questions
@@ -70,10 +77,20 @@ If you are a newbie of Git, please check this [tutorial](https://github.com/apac
 
 ## Log
 
+- Aug 2017, I started to brush leetcode questions using Python .
+- Oct 2017, I saw Kris Yu's algorithm project on Github, but he has not updated it. I decided to build new one on my own and got his permission successfully.
+- Dec 2017, this project was only considered as my record of question solutions.
+- Mar 2018, the project continued to have dozens of stars. I felt that my thinking and funny words were helpful to others, determined to persist, and never stop.
+- May 2018, I had to start my internship, less update, but the number of stars reached 200.
+- Sep 2018, since I was also looking for a domestic job, I would send my own code link on the nowcoder.com  every time I finished the online tech test. The strategy for attracting traffic was very successful, the number of stars reached 1.7k in a rush way. At this moment, I found that my thinking and description styles are very popular, but the power of one person is limited, so I would like to recruit some like-minded people to contribute to the project like myself. 
+
+The current positioning of this project is to implement the basic algorithm in different programming languages, refining the boilerplate, and summarize the ideas. 
+
+### ***Two words: boilerplate + ideas***
 
 ## License
 
-MIT © [ApacheCN](https://github.com/apachecn)
+GPL-3.0 © [ApacheCN](https://github.com/apachecn)
 
 ## Organization 
 
