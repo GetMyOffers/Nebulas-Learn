@@ -26,8 +26,8 @@ we can simplify our computation as below:
 =   
 ```
 
-we can call each 4 numbers a chunk, so from `N % 4` we can know how many chunks there are, then the rest 
-0, 1, 3 and 4 elements will influence our final result.
+we can call each 4 numbers a `chunk`, so from `N % 4` we can know how many chunks there are, then the rest 
+`0`, `1`, `3` and `4` elements will influence our final result.
 
 After consider the corner case, we can arrive the solution:
 
